@@ -43,7 +43,7 @@ public abstract class AbstractGrid<T extends Customer, R extends JpaRepository> 
 
 /*
         final List<String> fieldsList = new FieldForView<T>(type)
-                .getListFields()
+                .getFields()
                 .values()
                 .stream()
                 .map(o -> o.getDisplayName())

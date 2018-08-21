@@ -15,13 +15,12 @@ import java.util.Calendar;
 public class Application {
 
     private static final Logger log = LoggerFactory.getLogger(Application.class);
+    @Autowired
+    private ApplicationContext applicationContext;
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class);
     }
-
-    @Autowired
-    private ApplicationContext applicationContext;
 
     @Bean
     public CommandLineRunner loadData(CustomerRepository repository) {
@@ -38,16 +37,17 @@ public class Application {
                     .lastName("Вуд")
                     .salary(1000)
                     .typeCustomer(type_2)
-                    .deteBirth(Calendar.getInstance().getTime())
+                    .dateBirth(Calendar.getInstance().getTime())
+                    .married(true)
                     .build();
 
             // save a couple of customers
-            //repository.save(customer1);
-            repository.save(new Customer(null, "Jack", "Bauer", 0, null, null));
-            repository.save(new Customer(null, "Chloe", "O'Brian", 0, null, null));
-            repository.save(new Customer(null, "Kim", "Bauer", 0, null, null));
-            repository.save(new Customer(null, "David", "Palmer", 0, null, null));
-            repository.save(new Customer(null, "Michelle", "Dessler", 0, null, null));
+            repository.save(customer1);
+            repository.save(new Customer(null, "Jack", "Bauer", 0, null, null, false));
+            repository.save(new Customer(null, "Chloe", "O'Brian", 0, null, null, false));
+            repository.save(new Customer(null, "Kim", "Bauer", 0, null, null, false));
+            repository.save(new Customer(null, "David", "Palmer", 0, null, null, false));
+            repository.save(new Customer(null, "Michelle", "Dessler", 0, null, null, false));
 
             // fetch all customers
             log.info("Customers found with findAll():");

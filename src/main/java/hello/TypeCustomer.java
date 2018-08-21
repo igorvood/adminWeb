@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 
 @Entity
 @Data
@@ -18,7 +19,8 @@ public class TypeCustomer {
     @Id
     @GeneratedValue
     //@ViewColumn(displayName = "id_1")
-    private Long id;
+    private BigDecimal id;
+
 
     @ViewColumn(displayName = "Код")
     private String code;

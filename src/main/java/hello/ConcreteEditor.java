@@ -7,7 +7,7 @@ import com.vaadin.flow.spring.annotation.UIScope;
 @UIScope
 public class ConcreteEditor extends AbstractEditor<Customer, CustomerRepository> {
 
-    public ConcreteEditor(CustomerRepository repository) {
-        super(Customer.class, repository);
+    public ConcreteEditor(Class<Customer> type, CustomerRepository repository) {
+        super(type, repository);
     }
 }

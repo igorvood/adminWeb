@@ -13,14 +13,10 @@ import org.springframework.util.StringUtils;
 @Route(value = "m")
 public class MainView extends VerticalLayout {
 
-    private final CustomerRepository repo;
-
-    private final CustomerEditor editor;
-
     final Grid<Customer> grid;
-
     final TextField filter;
-
+    private final CustomerRepository repo;
+    private final CustomerEditor editor;
     private final Button addNewBtn;
 
     public MainView(CustomerRepository repo, CustomerEditor editor) {
@@ -69,8 +65,7 @@ public class MainView extends VerticalLayout {
     void listCustomers(String filterText) {
         if (StringUtils.isEmpty(filterText)) {
             grid.setItems(repo.findAll());
-        }
-        else {
+        } else {
             grid.setItems(repo.findByLastNameStartsWithIgnoreCase(filterText));
         }
     }

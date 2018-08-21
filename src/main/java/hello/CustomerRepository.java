@@ -2,9 +2,10 @@ package hello;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.math.BigDecimal;
 import java.util.List;
 
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
+public interface CustomerRepository extends JpaRepository<Customer, BigDecimal> {
 
     List<Customer> findByLastNameStartsWithIgnoreCase(String lastName);
 }

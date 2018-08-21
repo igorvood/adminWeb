@@ -39,7 +39,6 @@ public class AbstractEditor<T extends Customer, R extends JpaRepository> extends
     public AbstractEditor(Class<T> type, R repository) {
         this.type = type;
         this.repository = repository;
-
         this.binder = new Binder<>(type);
 
 
@@ -61,6 +60,9 @@ public class AbstractEditor<T extends Customer, R extends JpaRepository> extends
         for (String tf : fields.keySet()) {
             Binder.Binding<T, String> bind = binder.bind(fields.get(tf), tf);
             System.out.println(bind);
+//
+
+
         }
 
 

@@ -10,14 +10,18 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.Route;
 import org.springframework.util.StringUtils;
 
-@Route(value = "m1")
+@Route(value = "mainView123")
 //@Route
 public class MainView123 extends VerticalLayout {
-    final Grid<Customer> grid;
-    final TextField filter;
-    private final CustomerRepository repo;
-    private final CustomerEditor editor;
-    private final Button addNewBtn;
+    private CustomerRepository repo;
+
+    private CustomerEditor editor;
+
+    private Grid<Customer> grid;
+
+    private TextField filter;
+
+    private Button addNewBtn;
 
     public MainView123(CustomerRepository repo, CustomerEditor editor) {
         this.repo = repo;
@@ -31,11 +35,13 @@ public class MainView123 extends VerticalLayout {
         add(actions, grid, editor);
 
         grid.setHeight("500px");
-        grid.setColumns("id", "firstName", "lastName");
+        grid.setColumns("id", "firstName", "lastName", "salary", "deteBirth", "typeCustomer", "married");
+
         grid.setPageSize(2);
         grid.getColumnByKey("id").setWidth("150px").setFlexGrow(0);
 
         filter.setPlaceholder("Filter by last name dsadasdasdas");
+
 
         // Hook logic to components
 
